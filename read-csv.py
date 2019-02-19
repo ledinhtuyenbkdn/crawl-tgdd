@@ -1,3 +1,4 @@
 import pandas as pd
 df = pd.read_csv("crawl-tgdd.csv")
-print(df.head(5))
+num_row = 5
+print(df.head(num_row))
