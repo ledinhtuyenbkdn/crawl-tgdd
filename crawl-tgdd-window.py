@@ -12,8 +12,14 @@ driver = webdriver.Chrome("C:/Users/ledin/OneDrive/Documents/crawl-tgdd/chromedr
 index = 0
 
 driver.get(url)
+# get number of pages
+numPageBtn = driver.find_elements_by_class_name("pagcomment")[0].find_elements_by_tag_name("a")
+numPage = 1
+if (len(numPageBtn) != 1):  
+    numPage = numPageBtn[len(numPageBtn) - 2].text
+print(numPage)
 # get all rating boxes
-for numPageRating in range(0, 5):
+for numPageRating in range(0, int(numPage)):
     eleRating = driver.find_elements_by_class_name("par")
     nextRatingBtn = None
     for i in range(0, len(eleRating)):
